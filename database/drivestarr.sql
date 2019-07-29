@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 28, 2019 at 08:30 PM
+-- Generation Time: Jul 29, 2019 at 05:36 AM
 -- Server version: 5.7.9
 -- PHP Version: 7.0.0
 
@@ -191,7 +191,7 @@ INSERT INTO `data_rows` (`id`, `data_type_id`, `field`, `type`, `display_name`, 
 (67, 19, 'id', 'text', 'Id', 1, 0, 0, 0, 0, 0, '{}', 1),
 (68, 20, 'id', 'text', 'Id', 1, 0, 0, 0, 0, 0, '{}', 1),
 (69, 21, 'id', 'text', 'Id', 1, 0, 0, 0, 0, 0, '{}', 1),
-(82, 1, 'user_hasone_bus_relationship', 'relationship', 'bus', 0, 1, 1, 1, 1, 1, '{"model":"App\\\\Bus","table":"bus","type":"hasOne","column":"id","key":"id","label":"route_name","pivot_table":"bus","pivot":"0","taggable":"0"}', 13),
+(82, 1, 'user_hasone_bus_relationship', 'relationship', 'bus', 0, 1, 1, 1, 1, 1, '{"model":"App\\\\Bus","table":"bus","type":"belongsTo","column":"id","key":"id","label":"route_name","pivot_table":"bus","pivot":"0","taggable":"0"}', 13),
 (72, 21, 'created_at', 'timestamp', 'Created At', 0, 0, 0, 0, 0, 0, '{}', 4),
 (73, 21, 'updated_at', 'timestamp', 'Updated At', 0, 0, 0, 0, 0, 0, '{}', 5),
 (74, 22, 'id', 'text', 'Id', 1, 0, 0, 0, 0, 0, '{}', 1),
@@ -240,7 +240,7 @@ CREATE TABLE IF NOT EXISTS `data_types` (
 --
 
 INSERT INTO `data_types` (`id`, `name`, `slug`, `display_name_singular`, `display_name_plural`, `icon`, `model_name`, `policy_name`, `controller`, `description`, `generate_permissions`, `server_side`, `details`, `created_at`, `updated_at`) VALUES
-(1, 'users', 'users', 'User', 'Users', 'voyager-person', 'TCG\\Voyager\\Models\\User', 'TCG\\Voyager\\Policies\\UserPolicy', 'TCG\\Voyager\\Http\\Controllers\\VoyagerUserController', NULL, 1, 0, '{"order_column":null,"order_display_column":null,"order_direction":"desc","default_search_key":null,"scope":null}', '2019-07-28 07:17:03', '2019-07-28 15:29:04'),
+(1, 'users', 'users', 'User', 'Users', 'voyager-person', 'TCG\\Voyager\\Models\\User', 'TCG\\Voyager\\Policies\\UserPolicy', 'TCG\\Voyager\\Http\\Controllers\\VoyagerUserController', NULL, 1, 0, '{"order_column":null,"order_display_column":null,"order_direction":"desc","default_search_key":null,"scope":null}', '2019-07-28 07:17:03', '2019-07-28 23:57:03'),
 (2, 'menus', 'menus', 'Menu', 'Menus', 'voyager-list', 'TCG\\Voyager\\Models\\Menu', NULL, '', '', 1, 0, NULL, '2019-07-28 07:17:03', '2019-07-28 07:17:03'),
 (3, 'roles', 'roles', 'Role', 'Roles', 'voyager-lock', 'TCG\\Voyager\\Models\\Role', NULL, '', '', 1, 0, NULL, '2019-07-28 07:17:03', '2019-07-28 07:17:03'),
 (4, 'categories', 'categories', 'Category', 'Categories', 'voyager-categories', 'TCG\\Voyager\\Models\\Category', NULL, '', '', 1, 0, NULL, '2019-07-28 07:18:16', '2019-07-28 07:18:16'),
@@ -940,7 +940,7 @@ CREATE TABLE IF NOT EXISTS `users` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `users_email_unique` (`email`),
   KEY `users_role_id_foreign` (`role_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `users`
@@ -978,6 +978,13 @@ CREATE TABLE IF NOT EXISTS `user_students` (
   KEY `user_roles_user_id_index` (`user_id`),
   KEY `user_roles_role_id_index` (`student_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `user_students`
+--
+
+INSERT INTO `user_students` (`user_id`, `student_id`) VALUES
+(3, 1);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
