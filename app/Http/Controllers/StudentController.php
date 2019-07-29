@@ -13,7 +13,7 @@ use TCG\Voyager\Events\BreadDataUpdated;
 use TCG\Voyager\Events\BreadImagesDeleted;
 use TCG\Voyager\Facades\Voyager;
 use TCG\Voyager\Http\Controllers\Traits\BreadRelationshipParser;
-
+use Illuminate\Support\Facades\Crypt;
 class StudentController extends Controller
 {
     use BreadRelationshipParser;
@@ -32,6 +32,7 @@ class StudentController extends Controller
 
     public function index(Request $request)
     {
+         
         // GET THE SLUG, ex. 'posts', 'pages', etc.
         $slug = $this->getSlug($request);
 
@@ -199,8 +200,12 @@ class StudentController extends Controller
         if (view()->exists("voyager::$slug.read")) {
             $view = "voyager::$slug.read";
         }
+       $encrypted = Crypt::encryptString(json_encode(["id"=>$dataTypeContent->id??0]));
+    //    $decrypted = Crypt::decryptString($encrypted);
+        $qr_code = \QrCode::size(500)->generate($encrypted);
+        
 
-        return Voyager::view($view, compact('dataType', 'dataTypeContent', 'isModelTranslatable', 'isSoftDeleted'));
+        return view("read_student", compact('dataType', 'dataTypeContent', 'isModelTranslatable','qr_code', 'isSoftDeleted'));
     }
 
     //***************************************
