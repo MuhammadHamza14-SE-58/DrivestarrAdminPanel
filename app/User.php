@@ -5,10 +5,10 @@ namespace App;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
-
+use Laravel\Passport\HasApiTokens;
 class User extends \TCG\Voyager\Models\User
 {
-    use Notifiable;
+    use Notifiable,HasApiTokens;
 
     /**
      * The attributes that are mass assignable.
@@ -36,4 +36,11 @@ class User extends \TCG\Voyager\Models\User
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function apirole(){
+            return $this->belongsTo('App\Role', 'role_id');
+    }
+    public function token(){
+        return $this->hasOne("App\Token","user_id");
+    }
 }
