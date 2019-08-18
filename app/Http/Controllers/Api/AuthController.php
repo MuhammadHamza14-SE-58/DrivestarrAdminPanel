@@ -70,7 +70,8 @@ class AuthController extends Controller
             "role"=>$user_data->role->name,
             'expires_at' => Carbon::parse(
                 $tokenResult->token->expires_at
-            )->toDateTimeString()
+            )->toDateTimeString(),
+            "status"=>200
         ]);
     }
   

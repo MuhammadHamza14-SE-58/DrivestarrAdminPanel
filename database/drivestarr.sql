@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 29, 2019 at 05:36 AM
+-- Generation Time: Aug 12, 2019 at 12:53 PM
 -- Server version: 5.7.9
 -- PHP Version: 7.0.0
 
@@ -395,6 +395,28 @@ CREATE TABLE IF NOT EXISTS `oauth_access_tokens` (
   KEY `oauth_access_tokens_user_id_index` (`user_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Dumping data for table `oauth_access_tokens`
+--
+
+INSERT INTO `oauth_access_tokens` (`id`, `user_id`, `client_id`, `name`, `scopes`, `revoked`, `created_at`, `updated_at`, `expires_at`) VALUES
+('4bbffc16ef75cc66f44698cf80582a03075d5f3abde4035470aa781983dfc058162c65877f5711fd', 1, 1, 'Personal Access Token', '[]', 0, '2019-07-29 13:51:10', '2019-07-29 13:51:10', '2020-07-29 18:51:10'),
+('fadd7b72e67ffc4acedbc97faaeb16a559f4b3c37b12dcab1b227bbb4893b4fab98adc1b95c965c1', 1, 1, 'Personal Access Token', '[]', 0, '2019-07-29 13:51:23', '2019-07-29 13:51:23', '2020-07-29 18:51:23'),
+('cf47f8018af658cb713347fed3a34938ca43450d5150e863f65e580646b8fb23b8debf19a09374e3', 1, 1, 'Personal Access Token', '[]', 0, '2019-07-29 13:52:29', '2019-07-29 13:52:29', '2020-07-29 18:52:29'),
+('ffd10cc585a6d11d6ec83ed9c1a0ec59227273e52a96471228cd4f7db9521572cffb564a4b16d516', 1, 1, 'Personal Access Token', '[]', 0, '2019-07-29 13:57:58', '2019-07-29 13:57:58', '2020-07-29 18:57:58'),
+('2c9458229303aa91e351d04a14da95d625f717d5f8bc36ff15faaa6040b692ae14a312e965cbe975', 1, 1, 'Personal Access Token', '[]', 0, '2019-07-29 14:14:39', '2019-07-29 14:14:39', '2020-07-29 19:14:39'),
+('254d37ef5e3f4eb71acf5786d95c91c90de0d2ce1bde89e112d7cebf2d3fcac067b375184f467c6e', 1, 1, 'Personal Access Token', '[]', 0, '2019-07-29 14:14:56', '2019-07-29 14:14:56', '2020-07-29 19:14:56'),
+('fd2c6f87e01f188bee14e8c76b8647ce46d2b92fa68324a20f9814144303390cd657dc8640c1d6b9', 1, 1, 'Personal Access Token', '[]', 0, '2019-07-29 14:15:34', '2019-07-29 14:15:34', '2020-07-29 19:15:34'),
+('dca914dd3a8350536e8ba66534f75649185bb4aa4c4ef24c31393d19b84a56bbd570ce899c033f9c', 1, 1, 'Personal Access Token', '[]', 0, '2019-07-29 14:17:16', '2019-07-29 14:17:16', '2020-07-29 19:17:16'),
+('f706979bc8bd88ff5d36bbbd2b54bc4d88ae515f1b241c8b5e45dc48c86b8a9ef4abcf92d521b150', 1, 1, 'Personal Access Token', '[]', 0, '2019-07-29 14:17:36', '2019-07-29 14:17:36', '2020-07-29 19:17:36'),
+('596986a713f5feabf10eb83a364934f6036c8b1aa14b4d707eeea46a374f779246f7b1058efb97d4', 1, 1, 'Personal Access Token', '[]', 0, '2019-07-29 14:17:51', '2019-07-29 14:17:51', '2020-07-29 19:17:51'),
+('fb91b972cc2d8d2098a684a6d7a0e413d1e90b0af9dfe31a2884cb9ba627a09aaef098222e0b30c4', 1, 1, 'Personal Access Token', '[]', 0, '2019-07-29 14:22:43', '2019-07-29 14:22:43', '2020-07-29 19:22:43'),
+('d74a27e75f2a347f34df6627dec3a0d480bab94877cd9195929c70ff9203efb6a40f12bdd4d6d2c0', 1, 1, 'Personal Access Token', '[]', 0, '2019-07-29 14:23:25', '2019-07-29 14:23:25', '2020-07-29 19:23:25'),
+('e33d2d0331ccc0bb2e958d521d1e2d5912b1b1d227c224b60d4bacb9f68221a2b45b91189f549a29', 1, 1, 'Personal Access Token', '[]', 0, '2019-07-29 14:57:55', '2019-07-29 14:57:55', '2020-07-29 19:57:55'),
+('d0558e8c215d936704b1e2a69a3ca1d7824557972313235035a5a32fb08582c95db0968ddda324e8', 1, 1, 'Personal Access Token', '[]', 0, '2019-07-29 15:01:54', '2019-07-29 15:01:54', '2020-07-29 20:01:54'),
+('c2816ca433e91f32308232223cc36d9372c7164e8dd95954d85973f92586b0522411fe2efc3233ab', 1, 1, 'Personal Access Token', '[]', 0, '2019-07-29 15:01:58', '2019-07-29 15:01:58', '2020-07-29 20:01:58'),
+('8efcaeaa3207d14507138aebce0f0cb9eb7c46e7fac3cc6d24ee7692107366fd6cf61844f105df32', 1, 1, 'Personal Access Token', '[]', 0, '2019-07-29 15:04:22', '2019-07-29 15:04:22', '2020-07-29 20:04:22');
+
 -- --------------------------------------------------------
 
 --
@@ -641,15 +663,25 @@ INSERT INTO `permission_role` (`permission_id`, `role_id`) VALUES
 (9, 1),
 (10, 1),
 (11, 1),
+(11, 3),
 (12, 1),
+(12, 3),
 (13, 1),
+(13, 3),
 (14, 1),
+(14, 3),
 (15, 1),
+(15, 3),
 (16, 1),
+(16, 3),
 (17, 1),
+(17, 3),
 (18, 1),
+(18, 3),
 (19, 1),
+(19, 3),
 (20, 1),
+(20, 3),
 (21, 1),
 (22, 1),
 (23, 1),
@@ -697,20 +729,35 @@ INSERT INTO `permission_role` (`permission_id`, `role_id`) VALUES
 (65, 1),
 (66, 1),
 (67, 1),
+(67, 3),
 (68, 1),
+(68, 3),
 (69, 1),
+(69, 3),
 (70, 1),
+(70, 3),
 (71, 1),
+(71, 3),
 (72, 1),
+(72, 3),
 (73, 1),
+(73, 3),
 (74, 1),
+(74, 3),
 (75, 1),
+(75, 3),
 (76, 1),
+(76, 3),
 (77, 1),
+(77, 3),
 (78, 1),
+(78, 3),
 (79, 1),
+(79, 3),
 (80, 1),
+(80, 3),
 (81, 1),
+(81, 3),
 (82, 1),
 (83, 1),
 (84, 1),
@@ -769,7 +816,7 @@ CREATE TABLE IF NOT EXISTS `roles` (
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `roles_name_unique` (`name`)
-) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `roles`
@@ -777,7 +824,8 @@ CREATE TABLE IF NOT EXISTS `roles` (
 
 INSERT INTO `roles` (`id`, `name`, `display_name`, `created_at`, `updated_at`) VALUES
 (1, 'admin', 'Administrator', '2019-07-28 07:17:03', '2019-07-28 07:17:03'),
-(2, 'user', 'Normal User', '2019-07-28 07:17:03', '2019-07-28 07:17:03');
+(2, 'user', 'Normal User', '2019-07-28 07:17:03', '2019-07-28 07:17:03'),
+(3, 'Rabia', 'Something', '2019-08-07 09:49:13', '2019-08-07 09:49:13');
 
 -- --------------------------------------------------------
 
@@ -852,14 +900,15 @@ CREATE TABLE IF NOT EXISTS `students` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `students`
 --
 
 INSERT INTO `students` (`id`, `name`, `school_id`, `qr_code`, `created_at`, `updated_at`) VALUES
-(1, 'Muhammad Shahid Muneer', 1, NULL, '2019-07-28 15:00:42', '2019-07-28 15:00:42');
+(1, 'Muhammad Shahid Muneer', 1, NULL, '2019-07-28 15:00:42', '2019-07-28 15:00:42'),
+(2, 'Hamza', 1, NULL, '2019-08-07 09:52:40', '2019-08-07 09:52:40');
 
 -- --------------------------------------------------------
 
@@ -940,14 +989,15 @@ CREATE TABLE IF NOT EXISTS `users` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `users_email_unique` (`email`),
   KEY `users_role_id_foreign` (`role_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `users`
 --
 
 INSERT INTO `users` (`id`, `role_id`, `name`, `email`, `avatar`, `email_verified_at`, `password`, `remember_token`, `settings`, `created_at`, `updated_at`, `mobile_number`, `bus_id`) VALUES
-(1, 1, 'Admin', 'admin@admin.com', 'users/default.png', NULL, '$2y$10$ITxIJNkMzq4pYFH2yLXzhePUczOeX2m/hDlbCw/juyBx.cWIjzpk.', 'tGbmgE7ieeKLFIfmTGU0KRWegnCkKlvIRYUZ4AKXbC8iekweOIoXH3ghhYMf', NULL, '2019-07-28 07:18:17', '2019-07-28 07:18:17', NULL, NULL);
+(1, 1, 'Admin', 'admin@admin.com', 'users/default.png', NULL, '$2y$10$ITxIJNkMzq4pYFH2yLXzhePUczOeX2m/hDlbCw/juyBx.cWIjzpk.', 'tGbmgE7ieeKLFIfmTGU0KRWegnCkKlvIRYUZ4AKXbC8iekweOIoXH3ghhYMf', NULL, '2019-07-28 07:18:17', '2019-07-28 07:18:17', NULL, NULL),
+(4, 3, 'User', 'user@gmail.com', 'users/default.png', NULL, '$2y$10$g/OwB8tGtex76iXvNpuDGuoHjdGBkn4jTV0BVTTEGWjfoDPkj5Th6', NULL, '{"locale":"en"}', '2019-08-07 09:50:37', '2019-08-07 09:50:37', NULL, NULL);
 
 -- --------------------------------------------------------
 

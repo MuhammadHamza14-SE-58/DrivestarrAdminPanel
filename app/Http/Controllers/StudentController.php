@@ -200,11 +200,10 @@ class StudentController extends Controller
         if (view()->exists("voyager::$slug.read")) {
             $view = "voyager::$slug.read";
         }
-       $encrypted = Crypt::encryptString(json_encode(["id"=>$dataTypeContent->id??0]));
+       $encrypted = Crypt::encryptString($dataTypeContent->id??0);
+       $encrypted=json_encode(["type"=>"Bearer","data"=>$encrypted]);
     //    $decrypted = Crypt::decryptString($encrypted);
-        $qr_code = \QrCode::size(500)->generate($encrypted);
-        
-
+        $qr_code = \QrCode::size(200)->generate($encrypted);
         return view("read_student", compact('dataType', 'dataTypeContent', 'isModelTranslatable','qr_code', 'isSoftDeleted'));
     }
 

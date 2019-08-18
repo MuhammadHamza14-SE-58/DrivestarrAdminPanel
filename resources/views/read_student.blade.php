@@ -3,6 +3,14 @@
 @section('page_title', __('voyager::generic.view').' '.$dataType->display_name_singular)
 
 @section('page_header')
+<style>
+@media print{
+    body .page-title, body .panel-heading, body .panel-body,body .site-footer-right{
+        display:none;
+    }
+   
+}
+</style>
     <h1 class="page-title">
         <i class="{{ $dataType->icon }}"></i> {{ __('voyager::generic.viewing') }} {{ ucfirst($dataType->display_name_singular) }} &nbsp;
 
