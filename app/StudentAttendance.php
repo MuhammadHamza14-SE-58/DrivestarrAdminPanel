@@ -10,7 +10,7 @@ class StudentAttendance extends Model
     use Translatable;
 
     protected $table="student_attendance";
-    protected $fillable = ["user_id",'checkin',"checkout"];
+    protected $fillable = ["user_id",'checkin',"checkout","bus_id"];
 
     /**
      * Statuses.

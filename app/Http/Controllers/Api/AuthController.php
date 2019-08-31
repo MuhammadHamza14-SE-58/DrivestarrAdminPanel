@@ -60,15 +60,14 @@ class AuthController extends Controller
         if ($request->remember_me)
             $token->expires_at = Carbon::now()->addWeeks(1);
         $token->save();
-        
-        $user_data=\App\User::with(["apirole"])
+        $user_data=\App\User::with(["apirole","Bus","currentbus"])
                         ->where("id",$user->id)
                         ->first();
         return response()->json([
             'access_token' => $tokenResult->accessToken,
             'token_type' => 'Bearer',
             "role"=>$user_data->role->name,
-            'expires_at' => Carbon::parse(
+            "bus"=>!empty($user_data->currentbus)?$user_data->currentbus->id:!empty($user_data->Bus)?$user_data->Bus->id:"",   'expires_at' => Carbon::parse(
                 $tokenResult->token->expires_at
             )->toDateTimeString(),
             "status"=>200

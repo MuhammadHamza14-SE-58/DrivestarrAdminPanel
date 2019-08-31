@@ -16,7 +16,7 @@ class User extends \TCG\Voyager\Models\User
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'email', 'password',"bus_id","current_bus_id"
     ];
 
     /**
@@ -42,5 +42,14 @@ class User extends \TCG\Voyager\Models\User
     }
     public function token(){
         return $this->hasOne("App\Token","user_id");
+    }
+
+    public function Bus()
+    {
+        return $this->belongsTo('App\Bus', 'bus_id');
+    }   
+    public function currentbus()
+    {
+        return $this->belongsTo('App\Bus', 'current_bus_id');
     }
 }
