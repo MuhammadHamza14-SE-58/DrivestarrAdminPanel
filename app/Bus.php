@@ -17,7 +17,10 @@ class Bus extends Model
      */
     const STATUS_ACTIVE = 'ACTIVE';
     const STATUS_INACTIVE = 'INACTIVE';
-
+    public function user()
+    {
+        return $this->hasOne('App\User', 'bus_id');
+    }
     /**
      * List of statuses.
      *

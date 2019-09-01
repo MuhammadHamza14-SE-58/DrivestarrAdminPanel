@@ -33,5 +33,6 @@ Route::group([
         Route::get('logout', 'Api\AuthController@logout');
         Route::get('user', 'Api\AuthController@user');
         Route::post('/student/scan', 'Api\StudentController@scan');
+        Route::post('/drivers/get-available-buses', 'Api\DriverController@getAvailableBuses');
     });
 });
