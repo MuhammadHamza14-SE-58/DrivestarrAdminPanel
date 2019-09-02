@@ -16,12 +16,42 @@ class DriverController extends Controller
      */
     public function getAvailableBuses(Request $request){
         $user=$request->user();
-        // $buses=\App\Bus::leftJoin("user","user.current_bus_id","=","bus.id")
-        // ->where("")->get();
+        
+        $buses=\App\Bus::whereNotIn("id",
+        \App\User::whereNotNull("current_bus_id")
+        ->pluck("current_bus_id"))
+        ->get();
+        $currentBus=\App\Bus::select("route_name","users.id")
+        ->leftJoin("users","users.current_bus_id","=","bus.id")
+        ->where("users.id","=",$user->id??"")
+        ->first();
+        
+        return response()->json(["data"=> $buses,"currentBus"=>$currentBus]);
+    }
+    public function engageBus(Request $request){
+        $user=$request->user();
+        $user->current_bus_id=$request->input("bus_id");
+        $user->save();
         $buses=\App\Bus::whereNotIn("id",
         \App\User::whereNotNull("current_bus_id")->pluck("current_bus_id"))
         ->get();
-        return response()->json(["data"=> $buses]);
 
+        $currentBus=\App\Bus::select("route_name","users.id")
+        ->leftJoin("users","users.current_bus_id","=","bus.id")
+        ->where("users.id","=",$user->id??"")
+        ->first();
+        return response()->json(["data"=> $buses,"currentBus"=>$currentBus]);
+    }
+
+    public function disengageBus(Request $request){
+        $user=$request->user();
+        $user->current_bus_id=$request->input("bus_id");
+        $user->save();
+
+        $buses=\App\Bus::whereNotIn("id",
+        \App\User::whereNotNull("current_bus_id")->pluck("current_bus_id"))
+        ->get();
+
+        return response()->json(["data"=> $buses]);
     }
 }
