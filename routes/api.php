@@ -12,7 +12,6 @@ use Illuminate\Http\Request;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
-
 // Route::group([
 //     'middleware' => 'api'
 // ], function () {
@@ -36,6 +35,7 @@ Route::group([
         Route::post('/drivers/get-available-buses', 'Api\DriverController@getAvailableBuses');
         Route::post('/drivers/engage-bus', 'Api\DriverController@engageBus');   
         Route::post('/drivers/disengage-bus', 'Api\DriverController@disengageBus');
- 
+        Route::post("/register-notification","Api\StudentController@addParentsNotification");
+        Route::post("/get-student-attendance","Api\StudentController@getStudentAttendance");
     });
 });
