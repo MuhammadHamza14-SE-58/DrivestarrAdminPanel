@@ -41,18 +41,29 @@ class StudentController extends Controller
             }
             else
             {
-            \App\StudentAttendance::create(["user_id"=>$data->id,"bus_id"=>$bus_id,"checkout"=>date("Y-m-d H:i:s")]);
+            \App\StudentAttendance::create(["user_id"=>$data->id,"bus_id"=>$bus_id,"checkin"=>date("Y-m-d H:i:s")]);
             }
+
             $student=new \App\Student();
-            $user=\App\Student::select("users.device_token")
+            $userTokens=\App\Student::select("user_firebase_device_tokens.device_token")
         ->leftJoin("user_students",
         "user_students.student_id",
         "=","students.id")
         ->leftJoin("users","user_students.user_id","=","users.id")
-        ->where("students.id",$id)
-        ->first();
-        if(!empty($user->device_token)){
-       $student->revokeNotification($user->device_token,$type,$data);
+        ->join("user_firebase_device_tokens","user_firebase_device_tokens.user_id","=","users.id")
+        ->where("students.id",$student_id)
+        ->get();
+
+        if(count($userTokens)>0){
+            $tokens='';
+          
+            foreach($userTokens as $token){
+                $tokens=$token->device_token;
+       $student->revokeNotification($tokens,$type,$data);
+                }
+       
+        //   $tokens=substr($tokens,0,-1);     
+          
         }
             return response()->json(["message"=>"Attendance Successfull "],200);
         }
@@ -60,13 +71,18 @@ class StudentController extends Controller
        return response()->json(
            ["message"=>"Input required"],
            200);
-
     }
 
     public function addParentsNotification(Request $request){
-       $user=$request->user();
-       $user->device_token=$request->input("device_token");
-       $user->save();
+        $user=$request->user();
+        $count=\App\UserFirebaseTokens::where("device_token",$request->input("device_token"))
+        ->count();
+        
+        if($count==0){
+        \App\UserFirebaseTokens::create(
+        ["user_id"=>$user->id,"device_token"=>$request->input("device_token")]
+            );
+        }
        return response()->json(["data"=>"success"]); 
     }
 

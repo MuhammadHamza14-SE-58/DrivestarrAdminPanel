@@ -43,6 +43,10 @@ class User extends \TCG\Voyager\Models\User
     public function token(){
         return $this->hasOne("App\Token","user_id");
     }
+    // public function firebase_tokens()
+    // {
+    //     return $this->hasOne('App\UserFirebaseTokens', 'user_id');
+    // }
 
     public function Bus()
     {

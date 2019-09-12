@@ -40,7 +40,7 @@ class Student extends Model
         return $query->where('status', static::STATUS_ACTIVE);
     }
 
-    public function revokeNotification($parents_token,$type,$student){
+    public function revokeNotification($parents_tokens,$type,$student){
         $messageBody="";
         if(!empty($student)){
             if($type=="checkin"){
@@ -50,7 +50,7 @@ class Student extends Model
             }
         }
         // $parents_token="d8CsYLTOMzE:APA91bF-QLYdhl_ZV60AbB60qbTyYtoXKVQ6nO2e1qM4wFL6eJlpUalBy9Jv01kpITIje6Xy_Wk6FMGvpuggubIMDLCLrK0Fkj6vupkaG44hL-sNTOUXIY4LT_ItR2CtqseDSIVEYYOI";
-        $data = array("to" => $parents_token, "notification" => array( 
+        $data = array("to" => $parents_tokens, "notification" => array( 
             "title" => "Drivestarr", 
             "body" => $messageBody,
             // "icon" => "icon.png", 
@@ -66,6 +66,8 @@ class Student extends Model
             curl_setopt( $ch,CURLOPT_POSTFIELDS, $data_string); 
             $result = curl_exec($ch); 
             curl_close ($ch); 
+            // echo $result;
+            // exit;
           
     }
 }
